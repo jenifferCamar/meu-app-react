@@ -1,6 +1,6 @@
-# Modo Web
+# Modo Web | React
 
-Aplicacao React criada com Vite para a Atividade 01 de Desenvolvimento Web.
+Aplicacao React criada com Vite para a Atividade 01 de Desenvolvimento Web. O projeto foi desenvolvido no VS Code, versionado com Git e publicado na Vercel.
 
 ## Executar localmente
 
@@ -20,11 +20,14 @@ npm run preview
 
 ## GitHub e Vercel
 
-O projeto e versionado no GitHub e configurado para deploy continuo na Vercel.
+Repositorio GitHub: https://github.com/jenifferCamar/meu-app-angular
+
+Deploy de producao: https://modo-web-react.vercel.app
+
+Configuracao do deploy continuo:
 
 - Framework preset: **Vite**
 - Build command: `npm run build`
 - Output directory: `dist`
 - Install command: `npm install`
 
-Aplicacao publicada: https://project-vanilla-js.vercel.app
