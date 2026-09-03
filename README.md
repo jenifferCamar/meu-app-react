@@ -26,3 +26,5 @@ O projeto e versionado no GitHub e configurado para deploy continuo na Vercel.
 - Build command: `npm run build`
 - Output directory: `dist`
 - Install command: `npm install`
+
+Aplicacao publicada: https://project-vanilla-js.vercel.app
