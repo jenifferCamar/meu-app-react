@@ -2,7 +2,6 @@
   "name": "empilha-react",
   "version": "1.0.0",
   "scripts": {
-    "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -14,7 +13,6 @@
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.7.0",
     "vite": "^7.1.3"
   }
 }
