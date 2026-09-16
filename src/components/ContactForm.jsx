@@ -5,10 +5,10 @@ export default function ContactForm({ onSubmit, message }) {
     <section className="contact" id="contato">
       <div className="contact-copy">
         <p className="eyebrow">Uma demonstração prática</p>
-        <h2>Pronto para colocar uma ideia no ar?</h2>
+        <h2>Tem uma ideia?<br /><em>Comece por aqui.</em></h2>
         <p>
-          Preencha o formulário para testar a interação. Como este projeto não
-          possui backend, a resposta aparece apenas nesta página.
+          Teste a interação preenchendo o formulário. A resposta aparece na
+          tela porque este é um projeto front-end, sem backend.
         </p>
       </div>
 
@@ -19,13 +19,7 @@ export default function ContactForm({ onSubmit, message }) {
         </label>
         <label htmlFor="message">
           Sua mensagem
-          <textarea
-            id="message"
-            name="message"
-            required
-            placeholder="Conte um pouco sobre a ideia..."
-            rows="4"
-          />
+          <textarea id="message" name="message" required placeholder="Conte um pouco sobre a ideia..." rows="4" />
         </label>
         <button type="submit">
           Enviar mensagem <span aria-hidden="true">↗</span>

@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 
 export default function App() {
   const [message, setMessage] = useState('');
+  const [isDark, setIsDark] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -18,8 +19,8 @@ export default function App() {
   }
 
   return (
-    <div className="page-shell">
-      <Header />
+    <div className={`page-shell${isDark ? ' is-dark' : ''}`}>
+      <Header isDark={isDark} onToggleTheme={() => setIsDark(!isDark)} />
       <main>
         <Hero />
         <Highlights />
