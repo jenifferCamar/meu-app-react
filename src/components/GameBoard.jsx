@@ -15,6 +15,7 @@ export default function GameBoard({ stack, activeBlock, onDrop }) {
         }
       }}
     >
+      <span className="board-label">torre em construção</span>
       <div className="board-stars" aria-hidden="true">
         <span className="star star-one">✦</span>
         <span className="star star-two">·</span>

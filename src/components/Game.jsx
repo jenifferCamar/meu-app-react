@@ -157,6 +157,18 @@ export default function Game() {
       </div>
 
       <div className="game-panel">
+        <div className="panel-topline">
+          <div>
+            <span className="panel-label">Partida atual</span>
+            <strong>Torre de blocos</strong>
+          </div>
+          <div className="progress-area">
+            <span>{Math.min(stack.length - 1, 10)} / 10</span>
+            <div className="progress-bar" aria-label={`${Math.min(stack.length - 1, 10)} de 10 blocos empilhados`}>
+              <i style={{ width: `${Math.min((stack.length - 1) * 10, 100)}%` }} />
+            </div>
+          </div>
+        </div>
         <ScoreBoard score={score} bestScore={bestScore} level={level} />
         <GameBoard stack={stack} activeBlock={activeBlock} onDrop={dropBlock} />
 

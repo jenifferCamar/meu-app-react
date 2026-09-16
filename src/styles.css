@@ -60,7 +60,29 @@ h1 em, .how-heading em { color: var(--orange); font-style: normal; }
 .game-tip { color: var(--muted); font-size: 0.6rem; line-height: 2.4; }
 .game-tip span { padding: 0.35rem 0.45rem; color: var(--ink); background: var(--accent); }
 
-.game-panel { width: min(100%, 490px); justify-self: end; }
+.game-panel {
+  width: min(100%, 490px);
+  justify-self: end;
+  border: 1px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.panel-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.panel-topline > div:first-child { display: flex; flex-direction: column; gap: 0.25rem; }
+.panel-label { color: #aeb8af; font-family: 'DM Mono', monospace; font-size: 0.52rem; text-transform: uppercase; }
+.panel-topline strong { font-size: 0.95rem; font-weight: 500; }
+.progress-area { display: grid; gap: 0.35rem; min-width: 100px; color: #aeb8af; font-family: 'DM Mono', monospace; font-size: 0.52rem; text-align: right; text-transform: uppercase; }
+.progress-bar { height: 5px; overflow: hidden; background: #49534d; }
+.progress-bar i { display: block; height: 100%; background: var(--accent); transition: width 0.25s ease; }
 .score-board { display: grid; grid-template-columns: 1.35fr 1fr 1fr; border: 1px solid var(--line); border-bottom: 0; background: var(--surface); }
 .score-item { display: flex; flex-direction: column; gap: 0.25rem; padding: 0.85rem 1rem; border-left: 1px solid var(--line); }
 .score-item:first-child { border-left: 0; }
@@ -70,14 +92,15 @@ h1 em, .how-heading em { color: var(--orange); font-style: normal; }
 
 .game-board { height: 500px; position: relative; isolation: isolate; overflow: hidden; cursor: pointer; border: 1px solid var(--line); background: #34434a; }
 .game-board::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0.18; background-image: linear-gradient(#dce3d6 1px, transparent 1px), linear-gradient(90deg, #dce3d6 1px, transparent 1px); background-size: 40px 40px; }
+.board-label { position: absolute; top: 0.8rem; left: 0.8rem; z-index: 6; padding: 0.4rem 0.5rem; color: #34434a; background: #dce3d6; font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.04em; text-transform: uppercase; pointer-events: none; }
 .board-stars { color: #dce3d6; }
 .star { position: absolute; z-index: 1; opacity: 0.75; }
 .star-one { top: 14%; left: 15%; font-size: 1rem; }
 .star-two { top: 28%; right: 17%; font-size: 1.35rem; }
 .star-three { top: 48%; left: 9%; font-size: 0.75rem; }
 .block { position: absolute; height: 34px; border: 1px solid rgba(29, 40, 34, 0.42); border-radius: 3px 3px 1px 1px; transition: left 0.016s linear, width 0.2s ease; }
-.placed-block { z-index: 3; box-shadow: inset 0 6px rgba(255, 255, 255, 0.2), 0 4px 0 rgba(29, 40, 34, 0.18); }
-.active-block { z-index: 4; box-shadow: inset 0 6px rgba(255, 255, 255, 0.22), 0 0 18px rgba(244, 201, 78, 0.25); }
+.placed-block { z-index: 3; background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent 38%); box-shadow: inset 0 6px rgba(255, 255, 255, 0.2), 0 4px 0 rgba(29, 40, 34, 0.18); }
+.active-block { z-index: 4; background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), transparent 38%); box-shadow: inset 0 6px rgba(255, 255, 255, 0.22), 0 0 18px rgba(244, 201, 78, 0.25); }
 .board-floor { position: absolute; z-index: 5; right: 0; bottom: 0; left: 0; height: 8px; background: var(--accent); }
 .board-hint { position: absolute; z-index: 6; right: 0.8rem; bottom: 1rem; color: #dce3d6; font-size: 0.55rem; letter-spacing: 0.04em; opacity: 0.7; pointer-events: none; }
 
