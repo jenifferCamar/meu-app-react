@@ -12,12 +12,12 @@ const BASE_BLOCK = {
   color: '#f4f2e9',
 };
 
-function createActiveBlock(width, index) {
+function createActiveBlock(width, index, bottom) {
   return {
     id: `active-${index}`,
     width,
     left: 0,
-    bottom: BOARD_BLOCK_HEIGHT,
+    bottom,
     direction: 1,
     color: COLORS[index % COLORS.length],
   };
@@ -25,7 +25,7 @@ function createActiveBlock(width, index) {
 
 export default function Game() {
   const [stack, setStack] = useState([BASE_BLOCK]);
-  const [activeBlock, setActiveBlock] = useState(createActiveBlock(74, 0));
+  const [activeBlock, setActiveBlock] = useState(createActiveBlock(74, 0, BOARD_BLOCK_HEIGHT));
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(() => {
     if (typeof window === 'undefined') return 0;
@@ -110,7 +110,11 @@ export default function Game() {
       return;
     }
 
-    const nextActive = createActiveBlock(overlapWidth, round + 1);
+    const nextActive = createActiveBlock(
+      overlapWidth,
+      round + 1,
+      nextStack.length * BOARD_BLOCK_HEIGHT,
+    );
     nextActive.left = round % 2 === 0 ? 0 : 100 - overlapWidth;
     nextActive.direction = round % 2 === 0 ? 1 : -1;
     setActiveBlock(nextActive);
@@ -131,7 +135,7 @@ export default function Game() {
   }, [dropBlock]);
 
   function restartGame() {
-    const nextActive = createActiveBlock(74, 0);
+    const nextActive = createActiveBlock(74, 0, BOARD_BLOCK_HEIGHT);
     setStack([BASE_BLOCK]);
     setActiveBlock(nextActive);
     setScore(0);
@@ -154,7 +158,7 @@ export default function Game() {
 
       <div className="game-panel">
         <ScoreBoard score={score} bestScore={bestScore} level={level} />
-        <GameBoard stack={stack} activeBlock={activeBlock} />
+        <GameBoard stack={stack} activeBlock={activeBlock} onDrop={dropBlock} />
 
         <div className="game-controls">
           {status === 'playing' ? (

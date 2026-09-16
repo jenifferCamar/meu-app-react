@@ -1,8 +1,20 @@
 import React from 'react';
 
-export default function GameBoard({ stack, activeBlock }) {
+export default function GameBoard({ stack, activeBlock, onDrop }) {
   return (
-    <div className="game-board" aria-label="Área do jogo">
+    <div
+      className="game-board"
+      aria-label="Área do jogo. Clique para soltar o bloco."
+      role="button"
+      tabIndex="0"
+      onClick={onDrop}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          onDrop();
+        }
+      }}
+    >
       <div className="board-stars" aria-hidden="true">
         <span className="star star-one">✦</span>
         <span className="star star-two">·</span>
@@ -35,6 +47,7 @@ export default function GameBoard({ stack, activeBlock }) {
       )}
 
       <div className="board-floor" aria-hidden="true" />
+      <span className="board-hint">clique para soltar</span>
     </div>
   );
 }

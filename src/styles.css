@@ -2,111 +2,111 @@
 
 :root {
   font-family: 'Space Grotesk', Arial, sans-serif;
-  color: #f3f0e7;
-  background: #14151b;
+  color: #1d2822;
+  background: #f5f0e7;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; background: #14151b; }
+body { margin: 0; min-width: 320px; background: #f5f0e7; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
-button:focus-visible, a:focus-visible { outline: 3px solid #c5f04a; outline-offset: 4px; }
+button:focus-visible, a:focus-visible, .game-board:focus-visible { outline: 3px solid #f4c94e; outline-offset: 4px; }
 
 .app-shell {
-  --night: #14151b;
-  --panel: #1c1d25;
-  --soft-panel: #252631;
-  --paper: #f3f0e7;
-  --muted: #9799a5;
-  --line: #383945;
-  --lime: #c5f04a;
-  --coral: #ff6b57;
-  --lavender: #9d8cff;
-  max-width: 1380px;
+  --background: #f5f0e7;
+  --surface: #fffdf8;
+  --ink: #1d2822;
+  --muted: #69736c;
+  --line: #d6d0c5;
+  --accent: #f4c94e;
+  --orange: #ef6b4f;
+  --blue: #8ba9e8;
+  max-width: 1180px;
   min-height: 100vh;
   margin: 0 auto;
   padding: 0 5vw;
-  color: var(--paper);
-  background: var(--night);
+  color: var(--ink);
+  background: var(--background);
   overflow: hidden;
 }
 
 .site-header {
-  min-height: 82px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
 }
 
-.brand { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.12em; }
-.brand span { color: var(--coral); }
+.brand { font-size: 1.05rem; font-weight: 700; letter-spacing: 0.1em; }
+.brand span { color: var(--orange); }
 .nav-bar { display: flex; align-items: center; gap: 1.6rem; }
-.nav-bar a, .header-status, .game-tip, .score-item span, .eyebrow, .step-number, .footer-year, .site-footer p, .highlight-tag, .visual-card { font-family: 'DM Mono', monospace; text-transform: uppercase; }
-.nav-bar a { color: var(--muted); font-size: 0.65rem; transition: color 0.2s ease; }
-.nav-bar a:hover { color: var(--lime); }
-.header-status { display: flex; align-items: center; gap: 0.45rem; color: var(--muted); font-size: 0.6rem; }
-.header-status i { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 4px rgba(197, 240, 74, 0.12); }
+.nav-bar a, .header-status, .game-tip, .score-item span, .eyebrow, .step-number, .site-footer p, .board-hint { font-family: 'DM Mono', monospace; text-transform: uppercase; }
+.nav-bar a { color: var(--muted); font-size: 0.64rem; transition: color 0.2s ease; }
+.nav-bar a:hover { color: var(--orange); }
+.header-status { display: flex; align-items: center; gap: 0.45rem; color: var(--muted); font-size: 0.58rem; }
+.header-status i { width: 7px; height: 7px; border-radius: 50%; background: #7dbb61; }
 
-.game-section { min-height: 720px; display: grid; grid-template-columns: 0.9fr 1.1fr; align-items: center; gap: 8vw; padding: 80px 0 100px; }
-.game-intro { max-width: 540px; }
-.eyebrow { display: flex; align-items: center; gap: 0.55rem; color: var(--coral); font-size: 0.65rem; letter-spacing: 0.1em; margin: 0 0 1.5rem; }
-.eyebrow span { width: 8px; height: 8px; display: inline-block; border-radius: 50%; background: var(--coral); }
-h1 { font-size: clamp(4.5rem, 9vw, 8.8rem); line-height: 0.84; letter-spacing: -0.09em; margin: 0; font-weight: 600; }
-h1 em, .how-heading em { display: inline-block; color: var(--lime); font-style: normal; }
-.game-description { max-width: 350px; color: var(--muted); font-size: 1.05rem; line-height: 1.5; margin: 2rem 0 1.3rem; }
-.game-tip { color: var(--muted); font-size: 0.62rem; }
-.game-tip span { padding: 0.3rem 0.4rem; color: var(--night); background: var(--paper); }
+.game-section { min-height: 690px; display: grid; grid-template-columns: 0.8fr 1.2fr; align-items: center; gap: 7vw; padding: 70px 0 90px; }
+.game-intro { max-width: 460px; }
+.eyebrow { display: flex; align-items: center; gap: 0.5rem; color: var(--orange); font-size: 0.63rem; letter-spacing: 0.09em; margin: 0 0 1.35rem; }
+.eyebrow span { width: 8px; height: 8px; display: inline-block; border-radius: 50%; background: var(--orange); }
+h1 { font-size: clamp(4rem, 8vw, 7.6rem); line-height: 0.86; letter-spacing: -0.085em; margin: 0; font-weight: 600; }
+h1 em, .how-heading em { color: var(--orange); font-style: normal; }
+.game-description { max-width: 350px; color: var(--muted); font-size: 1rem; line-height: 1.5; margin: 1.8rem 0 1.25rem; }
+.game-tip { color: var(--muted); font-size: 0.6rem; line-height: 2.4; }
+.game-tip span { padding: 0.35rem 0.45rem; color: var(--ink); background: var(--accent); }
 
-.game-panel { width: min(100%, 500px); justify-self: end; }
-.score-board { display: grid; grid-template-columns: 1.4fr 1fr 1fr; border: 1px solid var(--line); border-bottom: 0; background: var(--panel); }
-.score-item { display: flex; flex-direction: column; gap: 0.25rem; padding: 1rem; border-left: 1px solid var(--line); }
+.game-panel { width: min(100%, 490px); justify-self: end; }
+.score-board { display: grid; grid-template-columns: 1.35fr 1fr 1fr; border: 1px solid var(--line); border-bottom: 0; background: var(--surface); }
+.score-item { display: flex; flex-direction: column; gap: 0.25rem; padding: 0.85rem 1rem; border-left: 1px solid var(--line); }
 .score-item:first-child { border-left: 0; }
-.score-item span { color: var(--muted); font-size: 0.56rem; }
-.score-item strong { color: var(--paper); font-size: 1.6rem; letter-spacing: -0.05em; }
-.score-main strong { color: var(--lime); }
+.score-item span { color: var(--muted); font-size: 0.52rem; }
+.score-item strong { color: var(--ink); font-size: 1.55rem; letter-spacing: -0.05em; }
+.score-main strong { color: var(--orange); }
 
-.game-board { height: 500px; position: relative; isolation: isolate; overflow: hidden; border: 1px solid var(--line); background: radial-gradient(circle at 50% 25%, #292b3b 0%, var(--panel) 46%, #181920 100%); }
-.game-board::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0.3; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 40px 40px; mask-image: linear-gradient(to bottom, black, transparent 80%); }
-.board-stars { color: var(--lavender); font-family: Georgia, serif; }
-.star { position: absolute; z-index: 1; opacity: 0.8; }
-.star-one { top: 15%; left: 16%; font-size: 1.2rem; }
-.star-two { top: 29%; right: 16%; font-size: 2rem; }
-.star-three { top: 48%; left: 10%; font-size: 0.9rem; }
-.block { position: absolute; height: 34px; border: 1px solid rgba(20, 21, 27, 0.45); border-radius: 3px 3px 1px 1px; transition: left 0.016s linear, width 0.2s ease; }
-.placed-block { z-index: 3; box-shadow: inset 0 6px rgba(255, 255, 255, 0.16), 0 4px 0 rgba(0, 0, 0, 0.16); }
-.active-block { z-index: 4; box-shadow: inset 0 6px rgba(255, 255, 255, 0.17), 0 0 22px rgba(197, 240, 74, 0.16); }
-.board-floor { position: absolute; z-index: 5; right: 0; bottom: 0; left: 0; height: 8px; background: var(--lime); box-shadow: 0 -4px 15px rgba(197, 240, 74, 0.25); }
+.game-board { height: 500px; position: relative; isolation: isolate; overflow: hidden; cursor: pointer; border: 1px solid var(--line); background: #34434a; }
+.game-board::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0.18; background-image: linear-gradient(#dce3d6 1px, transparent 1px), linear-gradient(90deg, #dce3d6 1px, transparent 1px); background-size: 40px 40px; }
+.board-stars { color: #dce3d6; }
+.star { position: absolute; z-index: 1; opacity: 0.75; }
+.star-one { top: 14%; left: 15%; font-size: 1rem; }
+.star-two { top: 28%; right: 17%; font-size: 1.35rem; }
+.star-three { top: 48%; left: 9%; font-size: 0.75rem; }
+.block { position: absolute; height: 34px; border: 1px solid rgba(29, 40, 34, 0.42); border-radius: 3px 3px 1px 1px; transition: left 0.016s linear, width 0.2s ease; }
+.placed-block { z-index: 3; box-shadow: inset 0 6px rgba(255, 255, 255, 0.2), 0 4px 0 rgba(29, 40, 34, 0.18); }
+.active-block { z-index: 4; box-shadow: inset 0 6px rgba(255, 255, 255, 0.22), 0 0 18px rgba(244, 201, 78, 0.25); }
+.board-floor { position: absolute; z-index: 5; right: 0; bottom: 0; left: 0; height: 8px; background: var(--accent); }
+.board-hint { position: absolute; z-index: 6; right: 0.8rem; bottom: 1rem; color: #dce3d6; font-size: 0.55rem; letter-spacing: 0.04em; opacity: 0.7; pointer-events: none; }
 
-.game-controls { display: flex; align-items: center; justify-content: space-between; min-height: 76px; padding: 1rem; border: 1px solid var(--line); border-top: 0; background: var(--panel); }
+.game-controls { display: flex; align-items: center; justify-content: space-between; min-height: 74px; padding: 0.9rem 1rem; border: 1px solid var(--line); border-top: 0; background: var(--surface); }
 .drop-button, .restart-button { border: 0; cursor: pointer; transition: transform 0.2s ease, background 0.2s ease; }
-.drop-button { padding: 0.85rem 1rem; color: var(--night); background: var(--lime); }
-.drop-button span { margin-left: 0.5rem; font-size: 1.2rem; }
-.drop-button:hover { background: var(--paper); transform: translateY(-2px); }
-.restart-button { padding: 0.75rem; color: var(--muted); background: transparent; font-size: 0.68rem; }
-.restart-button:hover { color: var(--paper); }
-.result-message { display: flex; flex-direction: column; gap: 0.25rem; }
-.result-message strong { color: var(--lime); font-size: 0.95rem; }
+.drop-button { padding: 0.8rem 1rem; color: var(--ink); background: var(--accent); }
+.drop-button span { margin-left: 0.45rem; font-size: 1.2rem; }
+.drop-button:hover { background: var(--orange); transform: translateY(-2px); }
+.restart-button { padding: 0.7rem; color: var(--muted); background: transparent; font-size: 0.66rem; }
+.restart-button:hover { color: var(--ink); }
+.result-message { display: flex; flex-direction: column; gap: 0.2rem; }
+.result-message strong { color: var(--orange); font-size: 0.95rem; }
 .result-message span { color: var(--muted); font-size: 0.72rem; }
 
-.how-to-play { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 8vw; padding: 100px 0 120px; border-top: 1px solid var(--line); }
-.how-heading h2 { font-size: clamp(2.8rem, 5.5vw, 5.7rem); line-height: 0.88; letter-spacing: -0.08em; margin: 0; }
+.how-to-play { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 8vw; padding: 90px 0 110px; border-top: 1px solid var(--line); }
+.how-heading h2 { font-size: clamp(2.7rem, 5vw, 5.1rem); line-height: 0.9; letter-spacing: -0.075em; margin: 0; }
 .steps-list { display: grid; align-content: center; }
-.step { display: grid; grid-template-columns: 70px 1fr; gap: 1.2rem; align-items: start; padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
+.step { display: grid; grid-template-columns: 62px 1fr; gap: 1rem; align-items: start; padding: 1.35rem 0; border-bottom: 1px solid var(--line); }
 .step:first-child { border-top: 1px solid var(--line); }
-.step-number { color: var(--coral); font-size: 0.65rem; }
-.step h3 { margin: 0 0 0.35rem; font-size: 1.25rem; }
-.step p { max-width: 360px; color: var(--muted); font-size: 0.9rem; line-height: 1.45; margin: 0; }
+.step-number { color: var(--orange); font-size: 0.62rem; }
+.step h3 { margin: 0 0 0.3rem; font-size: 1.15rem; }
+.step p { max-width: 360px; color: var(--muted); font-size: 0.88rem; line-height: 1.45; margin: 0; }
 
-.site-footer { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; gap: 1rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--line); color: var(--muted); }
-.site-footer p { font-size: 0.58rem; text-align: center; margin: 0; }
-.site-footer > span:last-child { font-family: 'DM Mono', monospace; font-size: 0.6rem; text-align: right; text-transform: uppercase; }
+.site-footer { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; gap: 1rem; padding: 1.4rem 0 1.8rem; border-top: 1px solid var(--line); color: var(--muted); }
+.site-footer p { font-size: 0.56rem; text-align: center; margin: 0; }
+.site-footer > span:last-child { font-family: 'DM Mono', monospace; font-size: 0.58rem; text-align: right; text-transform: uppercase; }
 
 @media (max-width: 850px) {
-  .game-section { grid-template-columns: 1fr; gap: 3.5rem; padding: 75px 0 95px; }
+  .game-section { grid-template-columns: 1fr; gap: 3.5rem; padding: 70px 0 90px; }
   .game-panel { justify-self: center; }
   .how-to-play { grid-template-columns: 1fr; gap: 3rem; }
 }
@@ -115,13 +115,13 @@ h1 em, .how-heading em { display: inline-block; color: var(--lime); font-style: 
   .site-header { min-height: 72px; }
   .nav-bar { gap: 0.75rem; }
   .nav-bar a:first-child { display: none; }
-  .header-status { font-size: 0.55rem; }
-  h1 { font-size: clamp(4rem, 20vw, 6.5rem); }
+  .header-status { font-size: 0.52rem; }
+  h1 { font-size: clamp(3.8rem, 19vw, 6.2rem); }
   .game-board { height: 430px; }
-  .game-controls { min-height: 82px; }
-  .score-item { padding: 0.8rem 0.65rem; }
-  .score-item strong { font-size: 1.3rem; }
-  .score-item span { font-size: 0.5rem; }
+  .game-controls { min-height: 80px; }
+  .score-item { padding: 0.75rem 0.6rem; }
+  .score-item strong { font-size: 1.25rem; }
+  .score-item span { font-size: 0.48rem; }
   .site-footer { grid-template-columns: 1fr; }
   .site-footer p, .site-footer > span:last-child { text-align: left; }
 }
