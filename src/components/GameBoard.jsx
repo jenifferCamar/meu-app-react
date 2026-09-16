@@ -1,6 +1,8 @@
 import React from 'react';
 
 export default function GameBoard({ stack, activeBlock, onDrop, status }) {
+  const cameraOffset = Math.max(0, (stack.length - 10) * 34);
+
   return (
     <div
       className="game-board"
@@ -29,7 +31,7 @@ export default function GameBoard({ stack, activeBlock, onDrop, status }) {
           style={{
             width: `${block.width}%`,
             left: `${block.left}%`,
-            bottom: `${block.bottom}px`,
+            bottom: `${block.bottom - cameraOffset}px`,
             background: block.color,
           }}
         />
@@ -41,7 +43,7 @@ export default function GameBoard({ stack, activeBlock, onDrop, status }) {
           style={{
             width: `${activeBlock.width}%`,
             left: `${activeBlock.left}%`,
-            bottom: `${activeBlock.bottom}px`,
+            bottom: `${activeBlock.bottom - cameraOffset}px`,
             background: activeBlock.color,
           }}
         />

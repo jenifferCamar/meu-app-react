@@ -38,6 +38,7 @@ export default function Game() {
 
   const level = Math.floor(score / 50) + 1;
   const speed = 0.13 + level * 0.025;
+  const towerHeight = stack.length - 1;
 
   useEffect(() => {
     activeRef.current = activeBlock;
@@ -111,11 +112,6 @@ export default function Game() {
       window.localStorage.setItem('empilha-recorde', String(nextScore));
     }
 
-    if (nextStack.length >= 11) {
-      setStatus('won');
-      return;
-    }
-
     const nextActive = createActiveBlock(
       overlapWidth,
       round + 1,
@@ -173,9 +169,9 @@ export default function Game() {
             <strong>Torre de blocos</strong>
           </div>
           <div className="progress-area">
-            <span>{Math.min(stack.length - 1, 10)} / 10</span>
-            <div className="progress-bar" aria-label={`${Math.min(stack.length - 1, 10)} de 10 blocos empilhados`}>
-              <i style={{ width: `${Math.min((stack.length - 1) * 10, 100)}%` }} />
+            <span>{towerHeight} {towerHeight === 1 ? 'bloco' : 'blocos'}</span>
+            <div className="progress-bar" aria-label={`${towerHeight} blocos empilhados`}>
+              <i style={{ width: `${towerHeight === 0 ? 0 : ((towerHeight - 1) % 10 + 1) * 10}%` }} />
             </div>
           </div>
         </div>
@@ -193,8 +189,8 @@ export default function Game() {
             </button>
           ) : (
             <div className="result-message" role="status">
-              <strong>{status === 'won' ? 'Torre perfeita!' : 'Game over'}</strong>
-              <span>{status === 'won' ? 'Você completou o desafio.' : 'O bloco não encaixou.'}</span>
+              <strong>Game over</strong>
+              <span>O bloco não encaixou.</span>
             </div>
           )}
           <button className="restart-button" type="button" onClick={restartGame}>

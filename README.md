@@ -13,7 +13,7 @@ Desenvolver uma aplicação interativa, responsiva e fácil de entender, utiliza
 - Atalho pela tecla **Espaço** ou **Seta para baixo**.
 - Pontuação e recorde salvos no navegador.
 - Níveis com aumento gradual de velocidade.
-- Tela de vitória ao completar a torre.
+- Torre infinita com rolagem vertical automática conforme o jogador sobe.
 - Tela de derrota quando o bloco não encaixa.
 - Botão para iniciar uma nova partida.
 - Interface responsiva para celular e computador.
