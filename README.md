@@ -1,19 +1,22 @@
-# Modo Web
+# Empilha!
 
-Landing page acadêmica criada para demonstrar um fluxo simples de desenvolvimento web: construir uma interface com React, versionar o código no GitHub e publicar o projeto na Vercel.
+Jogo de habilidade criado com React e Vite. O objetivo é soltar blocos no momento certo para construir uma torre cada vez mais alta.
 
 ## Objetivo
 
-Apresentar uma aplicação visualmente organizada, responsiva e fácil de explicar, utilizando componentes React e estilos CSS sem backend ou banco de dados.
+Desenvolver uma aplicação interativa, responsiva e fácil de entender, utilizando componentes React, JavaScript e CSS, sem backend e sem banco de dados.
 
 ## Funcionalidades
 
-- Navegação por âncoras entre as seções da página.
-- Hero principal com chamada para ação.
-- Cards com as etapas do projeto: componentes, versionamento e publicação.
-- Link para o repositório no GitHub.
-- Formulário demonstrativo com mensagem de confirmação no navegador.
-- Layout responsivo para computadores, tablets e celulares.
+- Bloco que se move automaticamente pela área do jogo.
+- Botão para soltar o bloco.
+- Atalho pela tecla **Espaço** ou **Seta para baixo**.
+- Pontuação e recorde salvos no navegador.
+- Níveis com aumento gradual de velocidade.
+- Tela de vitória ao completar a torre.
+- Tela de derrota quando o bloco não encaixa.
+- Botão para iniciar uma nova partida.
+- Interface responsiva para celular e computador.
 
 ## Tecnologias utilizadas
 
@@ -29,11 +32,12 @@ Apresentar uma aplicação visualmente organizada, responsiva e fácil de explic
 ```text
 src/
 ├── components/
-│   ├── ContactForm.jsx
 │   ├── Footer.jsx
+│   ├── Game.jsx
+│   ├── GameBoard.jsx
 │   ├── Header.jsx
-│   ├── Hero.jsx
-│   └── Highlights.jsx
+│   ├── HowToPlay.jsx
+│   └── ScoreBoard.jsx
 ├── App.jsx
 ├── main.jsx
 └── styles.css
@@ -41,7 +45,7 @@ src/
 
 ## Como instalar
 
-No terminal do VS Code, dentro da pasta do projeto, execute:
+No terminal do VS Code, dentro da pasta do projeto:
 
 ```bash
 npm install
@@ -49,28 +53,28 @@ npm install
 
 ## Como executar
 
-Para iniciar o servidor de desenvolvimento:
-
 ```bash
 npm run dev
 ```
 
-Depois, abra no navegador o endereço exibido pelo Vite, normalmente `http://localhost:5173`.
+Abra o endereço exibido pelo Vite, normalmente:
 
-Para gerar e conferir a versão de produção:
+```text
+http://localhost:5173
+```
+
+## Como gerar o build
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Como criar o projeto com Vite
-
-Caso queira iniciar um projeto semelhante do zero:
+## Comandos para criar com Vite
 
 ```bash
-npm create vite@latest modo-web -- --template react
-cd modo-web
+npm create vite@latest empilha-react -- --template react
+cd empilha-react
 npm install
 npm run dev
 ```
@@ -80,42 +84,54 @@ npm run dev
 ```bash
 git init
 git add .
-git commit -m "feat: adiciona estrutura inicial da aplicação React"
+git commit -m "feat: cria jogo de empilhar blocos"
 git branch -M main
 git remote add origin URL_DO_REPOSITORIO
 git push -u origin main
 ```
 
-Mensagens de commit sugeridas:
+Sugestões de commits:
 
 ```text
-feat: cria componentes da landing page
-style: adiciona layout responsivo e identidade visual
-feat: adiciona interação ao formulário de contato
-docs: atualiza instruções de instalação e deploy
+feat: cria mecânica de empilhamento dos blocos
+style: adiciona interface responsiva do jogo
+feat: adiciona pontuação e recorde local
+docs: atualiza instruções do projeto
 ```
 
 ## Publicação no GitHub
 
-1. Acesse [github.com](https://github.com) e entre na sua conta.
+1. Acesse [github.com](https://github.com) e faça login.
 2. Clique em **New repository**.
-3. Informe um nome, como `meu-app-react`, e crie o repositório sem adicionar outro README.
-4. No terminal do VS Code, execute os comandos de Git acima.
-5. Troque `URL_DO_REPOSITORIO` pela URL HTTPS copiada do repositório criado.
-6. Atualize a página do GitHub e confirme que os arquivos do projeto foram enviados.
+3. Informe o nome `react`.
+4. Crie o repositório sem adicionar README, `.gitignore` ou licença.
+5. Copie a URL HTTPS do novo repositório.
+6. No terminal do VS Code, execute os comandos Git.
+7. Substitua `URL_DO_REPOSITORIO` pela URL copiada.
 
 ## Deploy na Vercel
 
-1. Acesse [vercel.com](https://vercel.com) e faça login com sua conta do GitHub.
-2. No painel, clique em **Add New...** e depois em **Project**.
-3. Selecione o repositório do projeto e clique em **Import**.
-4. Confira as configurações: framework **Vite**, comando de build `npm run build` e diretório de saída `dist`.
-5. Clique em **Deploy** e aguarde a conclusão da publicação.
-6. A Vercel poderá criar novos deploys automaticamente sempre que houver um novo `git push` na branch `main`.
+1. Acesse [vercel.com](https://vercel.com).
+2. Faça login usando sua conta do GitHub.
+3. Clique em **Add New...** e depois em **Project**.
+4. Selecione o repositório `react`.
+5. Clique em **Import**.
+6. Confira as configurações:
+
+```text
+Framework Preset: Vite
+Build Command: npm run build
+Output Directory: dist
+Install Command: npm install
+```
+
+7. Clique em **Deploy**.
+
+A Vercel criará novos deploys automaticamente depois de cada `git push` na branch `main`.
 
 ## Como encontrar a URL pública
 
-Quando o deploy terminar, a Vercel exibirá um botão **Visit** ou **Domains** na tela do projeto. Clique nele para abrir a aplicação publicada e copie o endereço exibido no navegador. A URL também pode ser encontrada na aba **Deployments**, abrindo o deploy com status **Ready**.
+Após o deploy, abra o projeto na Vercel e clique em **Visit**. Também é possível acessar a aba **Deployments**, abrir o deploy com status **Ready** e copiar o domínio exibido.
 
 ## Autor
 
