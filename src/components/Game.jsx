@@ -31,7 +31,7 @@ export default function Game() {
     if (typeof window === 'undefined') return 0;
     return Number(window.localStorage.getItem('empilha-recorde')) || 0;
   });
-  const [status, setStatus] = useState('playing');
+  const [status, setStatus] = useState('ready');
   const [round, setRound] = useState(0);
   const activeRef = useRef(activeBlock);
   const stackRef = useRef(stack);
@@ -73,6 +73,11 @@ export default function Game() {
   }, [speed, status]);
 
   const dropBlock = useCallback(() => {
+    if (status === 'ready') {
+      setStatus('playing');
+      return;
+    }
+
     if (status !== 'playing') return;
 
     const current = activeRef.current;
@@ -93,6 +98,7 @@ export default function Game() {
       left: overlapLeft,
       bottom: stackRef.current.length * BOARD_BLOCK_HEIGHT,
       color: current.color,
+      isLatest: true,
     };
     const nextStack = [...stackRef.current, nextBlock];
 
@@ -145,6 +151,10 @@ export default function Game() {
     stackRef.current = [BASE_BLOCK];
   }
 
+  function startGame() {
+    setStatus('playing');
+  }
+
   return (
     <section className="game-section" id="inicio">
       <div className="game-intro">
@@ -170,17 +180,21 @@ export default function Game() {
           </div>
         </div>
         <ScoreBoard score={score} bestScore={bestScore} level={level} />
-        <GameBoard stack={stack} activeBlock={activeBlock} onDrop={dropBlock} />
+        <GameBoard stack={stack} activeBlock={activeBlock} onDrop={dropBlock} status={status} />
 
         <div className="game-controls">
-          {status === 'playing' ? (
+          {status === 'ready' ? (
+            <button className="drop-button" type="button" onClick={startGame}>
+              Começar partida <span>→</span>
+            </button>
+          ) : status === 'playing' ? (
             <button className="drop-button" type="button" onClick={dropBlock}>
               Soltar bloco <span>↓</span>
             </button>
           ) : (
             <div className="result-message" role="status">
-              <strong>{status === 'won' ? 'Torre perfeita!' : 'Ops, saiu do eixo.'}</strong>
-              <span>{status === 'won' ? 'Você completou o desafio.' : 'Tente mais uma vez.'}</span>
+              <strong>{status === 'won' ? 'Torre perfeita!' : 'Game over'}</strong>
+              <span>{status === 'won' ? 'Você completou o desafio.' : 'O bloco não encaixou.'}</span>
             </div>
           )}
           <button className="restart-button" type="button" onClick={restartGame}>

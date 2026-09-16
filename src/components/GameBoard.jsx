@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function GameBoard({ stack, activeBlock, onDrop }) {
+export default function GameBoard({ stack, activeBlock, onDrop, status }) {
   return (
     <div
       className="game-board"
@@ -24,7 +24,7 @@ export default function GameBoard({ stack, activeBlock, onDrop }) {
 
       {stack.map((block) => (
         <div
-          className="block placed-block"
+          className={`block placed-block${block.isLatest ? ' latest-block' : ''}`}
           key={block.id}
           style={{
             width: `${block.width}%`,
@@ -49,6 +49,13 @@ export default function GameBoard({ stack, activeBlock, onDrop }) {
 
       <div className="board-floor" aria-hidden="true" />
       <span className="board-hint">clique para soltar</span>
+      {status === 'ready' && (
+        <div className="board-overlay">
+          <span>Pronto?</span>
+          <strong>Monte sua torre</strong>
+          <small>Comece pela base e mantenha o ritmo.</small>
+        </div>
+      )}
     </div>
   );
 }
