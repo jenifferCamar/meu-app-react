@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function ContactForm({ onSubmit, message }) {
   return (
     <section className="contact" id="contato">
