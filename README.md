@@ -103,7 +103,7 @@ docs: atualiza instruções do projeto
 
 1. Acesse [github.com](https://github.com) e faça login.
 2. Clique em **New repository**.
-3. Informe o nome `react`.
+3. Informe o nome `reac`.
 4. Crie o repositório sem adicionar README, `.gitignore` ou licença.
 5. Copie a URL HTTPS do novo repositório.
 6. No terminal do VS Code, execute os comandos Git.
@@ -114,7 +114,7 @@ docs: atualiza instruções do projeto
 1. Acesse [vercel.com](https://vercel.com).
 2. Faça login usando sua conta do GitHub.
 3. Clique em **Add New...** e depois em **Project**.
-4. Selecione o repositório `react`.
+4. Selecione o repositório `reac`.
 5. Clique em **Import**.
 6. Confira as configurações:
 
