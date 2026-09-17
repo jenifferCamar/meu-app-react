@@ -2,6 +2,10 @@
 
 Jogo de habilidade criado com React e Vite. O objetivo é soltar blocos no momento certo para construir uma torre cada vez mais alta.
 
+## Jogo online
+
+Acesse a versão publicada na Vercel: [meu-app-react-five.vercel.app](https://meu-app-react-five.vercel.app)
+
 ## Objetivo
 
 Desenvolver uma aplicação interativa, responsiva e fácil de entender, utilizando componentes React, JavaScript e CSS, sem backend e sem banco de dados.
